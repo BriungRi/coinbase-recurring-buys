@@ -63,6 +63,8 @@ This script allows you to automatically purchase cryptocurrencies on Coinbase us
 
    Replace `/path/to/your/repo` with the actual path to your repository. HINT: Use `pwd`
 
+   Highly recommend using [crontab.guru](https://crontab.guru/) to check and generate a cron schedule.
+
 3. **Save and Exit**
 
    Save the file and exit the editor. The cronjob is now set up to run the script at the specified time.
@@ -79,4 +81,5 @@ This script allows you to automatically purchase cryptocurrencies on Coinbase us
 ## Notes
 
 - Ensure your account has sufficient funds to cover the purchase.
+  - HINT: Consider setting up recurring USDC buys because these should not incur fees
 - Monitor your Coinbase account for successful transactions.
