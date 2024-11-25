@@ -1,2 +1,3 @@
 .env
 cdp_api_key.json
+node_modules

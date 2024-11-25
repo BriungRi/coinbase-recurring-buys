@@ -5,7 +5,7 @@ This script allows you to automatically purchase cryptocurrencies on Coinbase us
 ## Prerequisites
 
 - An account on Coinbase with API access enabled.
-- `curl` installed on your Ubuntu machine.
+- Node.js and npm installed on your Ubuntu machine.
 - Your Coinbase API key, secret, and passphrase.
 
 ## Setup
@@ -18,32 +18,31 @@ This script allows you to automatically purchase cryptocurrencies on Coinbase us
    cd coinbase-recurring-buys
    ```
 
-2. **Configure API Credentials**
+2. **Install Dependencies**
+
+   Install the required npm packages:
+   ```bash
+   pnpm install
+   ```
+
+3. **Configure API Credentials**
 
    Copy the `.env.example` file to `.env` and fill in your Coinbase API credentials:
    ```bash
    API_KEY=
    API_SECRET=
-   API_PASSPHRASE=
-   ```
-
-3. **Make the Script Executable**
-
-   Make the script executable by running:
-   ```bash
-   chmod +x dca.sh
    ```
 
 4. **Test the Script**
 
    Run the script manually to ensure it works:
    ```bash
-   ./dca.sh --amount 50 --product BTC-USD
+   pnpm start --amount 50 --product BTC-USD
    ```
 
    To test in the sandbox environment, use the `--dry` flag:
    ```bash
-   ./dca.sh --amount 50 --product BTC-USD --dry
+   pnpm start --amount 50 --product BTC-USD --dry
    ```
 
 ## Setting Up the Cronjob
@@ -59,14 +58,23 @@ This script allows you to automatically purchase cryptocurrencies on Coinbase us
 
    Add the following line to schedule the script to run every day at 2 AM:
    ```bash
-   0 2 * * * /path/to/your/dca.sh --amount 50 --product BTC-USD
+   0 2 * * * cd /path/to/your/repo && pnpm start --amount 50 --product BTC-USD
    ```
 
-   Replace `/path/to/your/dca.sh` with the actual path to your script.
+   Replace `/path/to/your/repo` with the actual path to your repository. HINT: Use `pwd`
 
 3. **Save and Exit**
 
    Save the file and exit the editor. The cronjob is now set up to run the script at the specified time.
+
+4. **Check Previous Runs**
+
+   To check the status of previous runs, view the cron logs:
+   ```bash
+   grep CRON /var/log/syslog
+   ```
+
+   You can also check your Coinbase account history to verify successful transactions.
 
 ## Notes
 
