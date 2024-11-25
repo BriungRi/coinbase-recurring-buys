@@ -35,14 +35,16 @@ This script allows you to automatically purchase cryptocurrencies on Coinbase us
 
 4. **Test the Script**
 
+   As an example to buy $1 worth of BTC:
+
    Run the script manually to ensure it works:
    ```bash
-   pnpm start --amount 50 --product BTC-USD
+   pnpm start --amount 1 --product BTC-USD
    ```
 
    To test in the sandbox environment, use the `--dry` flag:
    ```bash
-   pnpm start --amount 50 --product BTC-USD --dry
+   pnpm start --amount 1 --product BTC-USD --dry
    ```
 
 ## Setting Up the Cronjob
@@ -56,9 +58,10 @@ This script allows you to automatically purchase cryptocurrencies on Coinbase us
 
 2. **Schedule the Script**
 
-   Add the following line to schedule the script to run every day at 2 AM:
+   Again, as an example to buy $1 worth of BTC every day at 2AM, add the following line to your crontab:
+
    ```bash
-   0 2 * * * cd /path/to/your/repo && pnpm start --amount 50 --product BTC-USD
+   0 2 * * * cd /path/to/your/repo && pnpm start --amount 1 --product BTC-USD
    ```
 
    Replace `/path/to/your/repo` with the actual path to your repository. HINT: Use `pwd`
