@@ -8,15 +8,14 @@ dotenv.config();
 
 const main = async () => {
   const { amount, productId, dry } = parseArgs();
-  const { apiKey, apiSecret } = getEnv();
+  const { apiKey, apiSecret, safetyOrderFrequencySeconds } = getEnv();
   const client = new RESTClient(apiKey, apiSecret, dry);
-  const currentHour = Math.floor(Date.now() / 1000 / 3600);
 
   // Create a market order
   try {
-    // Get current hour in epoch time for idempotency
-    // NOTE: This means that at max, we can only make 1 order per hour
-    const idempotencyKey = currentHour.toString();
+    const idempotencyKey = Math.floor(
+      Date.now() / 1000 / safetyOrderFrequencySeconds
+    ).toString();
     const createOrderRequest: CreateOrderRequest = {
       clientOrderId: idempotencyKey,
       productId: productId,
