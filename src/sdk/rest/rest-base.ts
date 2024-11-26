@@ -49,7 +49,8 @@ export class RESTBase {
     };
 
     const queryString = this.buildQueryString(queryParams);
-    const baseUrl = this.dry ? BASE_URL_SANDBOX : BASE_URL;
+    const baseUrl =
+      httpMethod === "GET" || !this.dry ? BASE_URL : BASE_URL_SANDBOX;
     const url = `https://${baseUrl}${urlPath}${queryString}`;
 
     return this.sendRequest(headers, requestOptions, url);

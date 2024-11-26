@@ -8,7 +8,7 @@ import {
   Product,
   Products,
   ProductType,
-} from './common-types';
+} from "./common-types";
 
 // Get Best Bid Ask
 export type GetBestBidAskRequest = {
@@ -58,9 +58,7 @@ export type GetProductRequest = {
   getTradabilityStatus?: boolean;
 };
 
-export type GetProductResponse = {
-  body?: Product;
-};
+export type GetProductResponse = Product;
 
 // Get Product Candles
 export type GetProductCandlesRequest = {

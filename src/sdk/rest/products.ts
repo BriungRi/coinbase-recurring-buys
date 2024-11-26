@@ -1,5 +1,5 @@
-import { API_PREFIX } from '../constants';
-import { RESTBase } from './rest-base';
+import { API_PREFIX } from "../constants";
+import { RESTBase } from "./rest-base";
 import {
   GetBestBidAskRequest,
   GetBestBidAskResponse,
@@ -13,8 +13,8 @@ import {
   GetProductResponse,
   ListProductsRequest,
   ListProductsResponse,
-} from './types/products-types';
-import { method } from './types/request-types';
+} from "./types/products-types";
+import { method } from "./types/request-types";
 
 // [GET] Get Best Bid Ask
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_getbestbidask
@@ -27,7 +27,7 @@ export function getBestBidAsk(
     endpoint: `${API_PREFIX}/best_bid_ask`,
     queryParams: requestParams,
     isPublic: false,
-  });
+  }).then((data) => JSON.parse(data));
 }
 
 // [GET] Get Product Book
@@ -69,7 +69,7 @@ export function getProduct(
     endpoint: `${API_PREFIX}/products/${productId}`,
     queryParams: requestParams,
     isPublic: false,
-  });
+  }).then((data) => JSON.parse(data));
 }
 
 // [GET] Get Product Candles
