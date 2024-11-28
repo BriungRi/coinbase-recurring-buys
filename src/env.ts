@@ -16,12 +16,12 @@ export const getEnv = () => {
 
   if (!safetyOrderFrequencySeconds) {
     console.error(
-      "Error: SAFETY_ORDER_FREQUENCY_SECONDS must be set in .env file"
+      "Error: SAFETY_ORDER_FREQUENCY_SECONDS must be set in .env file",
     );
     process.exit(1);
   } else if (isNaN(parseInt(safetyOrderFrequencySeconds))) {
     console.error(
-      "Error: SAFETY_ORDER_FREQUENCY_SECONDS must be a number in .env file"
+      "Error: SAFETY_ORDER_FREQUENCY_SECONDS must be a number in .env file",
     );
     process.exit(1);
   }

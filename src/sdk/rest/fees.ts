@@ -10,7 +10,7 @@ import { method } from "./types/request-types";
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_commitconverttrade
 export function getTransactionSummary(
   this: RESTBase,
-  requestParams: GetTransactionsSummaryRequest
+  requestParams: GetTransactionsSummaryRequest,
 ): Promise<GetTransactionsSummaryResponse> {
   return this.request({
     method: method.GET,

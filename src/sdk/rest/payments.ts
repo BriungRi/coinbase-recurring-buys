@@ -10,7 +10,7 @@ import { method } from "./types/request-types";
 // [GET] List Payment Methods
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_getpaymentmethods
 export function listPaymentMethods(
-  this: RESTBase
+  this: RESTBase,
 ): Promise<ListPaymentMethodsResponse> {
   return this.request({
     method: method.GET,
@@ -23,7 +23,7 @@ export function listPaymentMethods(
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_getpaymentmethod
 export function getPaymentMethod(
   this: RESTBase,
-  { paymentMethodId }: GetPaymentMethodRequest
+  { paymentMethodId }: GetPaymentMethodRequest,
 ): Promise<GetPaymentMethodResponse> {
   return this.request({
     method: method.GET,

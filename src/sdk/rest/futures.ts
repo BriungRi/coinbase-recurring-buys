@@ -20,7 +20,7 @@ import { method } from "./types/request-types";
 // [GET] Get Futures Balance Summary
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_getfcmbalancesummary
 export function getFuturesBalanceSummary(
-  this: RESTBase
+  this: RESTBase,
 ): Promise<GetFuturesBalanceSummaryResponse> {
   return this.request({
     method: method.GET,
@@ -32,7 +32,7 @@ export function getFuturesBalanceSummary(
 // [GET] Get Intraday Margin Setting
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_getintradaymarginsetting
 export function getIntradayMarginSetting(
-  this: RESTBase
+  this: RESTBase,
 ): Promise<GetIntradayMarginSettingResponse> {
   return this.request({
     method: method.GET,
@@ -45,7 +45,7 @@ export function getIntradayMarginSetting(
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_setintradaymarginsetting
 export function setIntradayMarginSetting(
   this: RESTBase,
-  requestParams: SetIntradayMarginSettingRequest
+  requestParams: SetIntradayMarginSettingRequest,
 ): Promise<SetIntradayMarginSettingResponse> {
   return this.request({
     method: method.POST,
@@ -59,7 +59,7 @@ export function setIntradayMarginSetting(
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_getcurrentmarginwindow
 export function getCurrentMarginWindow(
   this: RESTBase,
-  requestParams: GetCurrentMarginWindowRequest
+  requestParams: GetCurrentMarginWindowRequest,
 ): Promise<GetCurrentMarginWindowResponse> {
   return this.request({
     method: method.GET,
@@ -72,7 +72,7 @@ export function getCurrentMarginWindow(
 // [GET] List Futures Positions
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_getfcmpositions
 export function listFuturesPositions(
-  this: RESTBase
+  this: RESTBase,
 ): Promise<ListFuturesPositionsResponse> {
   return this.request({
     method: method.GET,
@@ -85,7 +85,7 @@ export function listFuturesPositions(
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_getfcmposition
 export function getFuturesPosition(
   this: RESTBase,
-  { productId }: GetFuturesPositionRequest
+  { productId }: GetFuturesPositionRequest,
 ): Promise<GetFuturesPositionResponse> {
   return this.request({
     method: method.GET,
@@ -98,7 +98,7 @@ export function getFuturesPosition(
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_schedulefcmsweep
 export function scheduleFuturesSweep(
   this: RESTBase,
-  requestParams: ScheduleFuturesSweepRequest
+  requestParams: ScheduleFuturesSweepRequest,
 ): Promise<ScheduleFuturesSweepResponse> {
   return this.request({
     method: method.POST,
@@ -111,7 +111,7 @@ export function scheduleFuturesSweep(
 // [GET] List Futures Sweeps
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_getfcmsweeps
 export function listFuturesSweeps(
-  this: RESTBase
+  this: RESTBase,
 ): Promise<ListFuturesSweepsResponse> {
   return this.request({
     method: method.GET,
@@ -123,7 +123,7 @@ export function listFuturesSweeps(
 // [DELETE] Cancel Pending Futures Sweep
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_cancelfcmsweep
 export function cancelPendingFuturesSweep(
-  this: RESTBase
+  this: RESTBase,
 ): Promise<CancelPendingFuturesSweep> {
   return this.request({
     method: method.DELETE,

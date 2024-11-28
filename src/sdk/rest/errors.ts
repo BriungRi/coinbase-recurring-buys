@@ -15,7 +15,7 @@ class CoinbaseError extends Error {
 export function handleException(
   response: Response,
   responseText: string,
-  reason: string
+  reason: string,
 ) {
   let message: string | undefined;
 

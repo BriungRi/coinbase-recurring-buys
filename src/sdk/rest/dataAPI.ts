@@ -7,7 +7,7 @@ import { GetAPIKeyPermissionsResponse } from "./types/dataAPI-types";
 // [GET] Get API Key Permissions
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_getapikeypermissions
 export function getAPIKeyPermissions(
-  this: RESTBase
+  this: RESTBase,
 ): Promise<GetAPIKeyPermissionsResponse> {
   return this.request({
     method: method.GET,

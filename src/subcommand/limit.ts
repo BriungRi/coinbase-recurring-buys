@@ -37,11 +37,11 @@ export const handleLimitCommand = async ({
     side === "BUY"
       ? (bestBid.price * (100 - percent)) / 100
       : (bestAsk.price * (100 + percent)) / 100,
-    parseFloat(quote_increment)
+    parseFloat(quote_increment),
   );
   const baseSize = roundToNearestIncrement(
     amount / limitPrice,
-    parseFloat(base_increment)
+    parseFloat(base_increment),
   );
   if (side === "BUY") {
     logger.info({ bestBid, limitPrice, baseSize });

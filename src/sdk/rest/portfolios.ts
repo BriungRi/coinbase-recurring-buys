@@ -20,7 +20,7 @@ import { method } from "./types/request-types";
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_getportfolios
 export function listPortfolios(
   this: RESTBase,
-  requestParams: ListPortfoliosRequest
+  requestParams: ListPortfoliosRequest,
 ): Promise<ListPortfoliosResponse> {
   return this.request({
     method: method.GET,
@@ -34,7 +34,7 @@ export function listPortfolios(
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_createportfolio
 export function createPortfolio(
   this: RESTBase,
-  requestParams: CreatePortfolioRequest
+  requestParams: CreatePortfolioRequest,
 ): Promise<CreatePortfolioResponse> {
   return this.request({
     method: method.POST,
@@ -48,7 +48,7 @@ export function createPortfolio(
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_moveportfoliofunds
 export function movePortfolioFunds(
   this: RESTBase,
-  requestParams: MovePortfolioFundsRequest
+  requestParams: MovePortfolioFundsRequest,
 ): Promise<MovePortfolioFundsResponse> {
   return this.request({
     method: method.POST,
@@ -62,7 +62,7 @@ export function movePortfolioFunds(
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_getportfoliobreakdown
 export function getPortfolioBreakdown(
   this: RESTBase,
-  { portfolioUuid, ...requestParams }: GetPortfolioBreakdownRequest
+  { portfolioUuid, ...requestParams }: GetPortfolioBreakdownRequest,
 ): Promise<GetPortfolioBreakdownResponse> {
   return this.request({
     method: method.GET,
@@ -76,7 +76,7 @@ export function getPortfolioBreakdown(
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_deleteportfolio
 export function deletePortfolio(
   this: RESTBase,
-  { portfolioUuid }: DeletePortfolioRequest
+  { portfolioUuid }: DeletePortfolioRequest,
 ): Promise<DeletePortfolioResponse> {
   return this.request({
     method: method.DELETE,
@@ -89,7 +89,7 @@ export function deletePortfolio(
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_editportfolio
 export function editPortfolio(
   this: RESTBase,
-  { portfolioUuid, ...requestParams }: EditPortfolioRequest
+  { portfolioUuid, ...requestParams }: EditPortfolioRequest,
 ): Promise<EditPortfolioResponse> {
   return this.request({
     method: method.PUT,
