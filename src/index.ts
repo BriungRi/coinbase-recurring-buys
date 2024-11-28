@@ -5,7 +5,10 @@ import { RESTClient } from "./sdk/rest";
 import { OrderSide } from "./sdk/rest/types/common-types";
 import { CreateOrderRequest } from "./sdk/rest/types/orders-types";
 import { roundToNearestIncrement } from "./math";
+import pino from "pino";
 dotenv.config();
+
+const logger = pino({});
 
 const main = async () => {
   const { subCommand, amount, productId, side, dry, percent } = parseArgs();
@@ -18,7 +21,7 @@ const main = async () => {
     ).toString();
 
     if (subCommand === "market") {
-      console.log(
+      logger.info(
         `Constructing a market ${side} order for $${amount} ${productId}`
       );
       const createOrderRequest: CreateOrderRequest = {
@@ -32,7 +35,7 @@ const main = async () => {
         },
       };
       const response = await client.createOrder(createOrderRequest);
-      console.log("Order placed successfully:", response);
+      logger.info("Order placed successfully", response);
     } else if (subCommand === "limit") {
       if (!percent) {
         throw new Error("Percent must be specified for limit orders");
@@ -59,11 +62,11 @@ const main = async () => {
         parseFloat(base_increment)
       );
       if (side === "BUY") {
-        console.log({ bestBid, limitPrice, baseSize });
+        logger.info({ bestBid, limitPrice, baseSize });
       } else {
-        console.log({ bestAsk, limitPrice, baseSize });
+        logger.info({ bestAsk, limitPrice, baseSize });
       }
-      console.log(`Placing a ${side} limit order for $${amount} ${productId}.`);
+      logger.info(`Placing a ${side} limit order for $${amount} ${productId}.`);
       const createOrderRequest: CreateOrderRequest = {
         clientOrderId: idempotencyKey,
         productId: productId,
@@ -77,13 +80,13 @@ const main = async () => {
         },
       };
       const response = await client.createOrder(createOrderRequest);
-      console.log("Order placed successfully:", response);
+      logger.info("Order placed successfully", response);
     } else {
       throw new Error("Invalid subcommand");
     }
   } catch (error) {
-    console.error(
-      "Error placing order:",
+    logger.error(
+      "Error placing order",
       error instanceof Error ? error.message : error
     );
     process.exit(1);
