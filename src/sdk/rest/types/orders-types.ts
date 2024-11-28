@@ -8,7 +8,7 @@ import {
   OrderSide,
   ProductType,
   SortBy,
-} from './common-types';
+} from "./common-types";
 
 // Create Order
 export type CreateOrderRequest = {

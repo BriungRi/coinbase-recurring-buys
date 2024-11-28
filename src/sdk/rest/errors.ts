@@ -1,4 +1,4 @@
-import { Response } from 'node-fetch';
+import { Response } from "node-fetch";
 
 class CoinbaseError extends Error {
   statusCode: number;
@@ -6,7 +6,7 @@ class CoinbaseError extends Error {
 
   constructor(message: string, statusCode: number, response: Response) {
     super(message);
-    this.name = 'CoinbaseError';
+    this.name = "CoinbaseError";
     this.statusCode = statusCode;
     this.response = response;
   }

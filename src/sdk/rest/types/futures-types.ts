@@ -3,7 +3,7 @@ import {
   FCMPosition,
   FCMSweep,
   IntradayMarginSetting,
-} from './common-types';
+} from "./common-types";
 
 // Get Futures Balance Summary
 export type GetFuturesBalanceSummaryResponse = {

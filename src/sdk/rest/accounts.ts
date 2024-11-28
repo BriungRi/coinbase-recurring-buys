@@ -1,12 +1,12 @@
-import { API_PREFIX } from '../constants';
-import { RESTBase } from './rest-base';
+import { API_PREFIX } from "../constants";
+import { RESTBase } from "./rest-base";
 import {
   GetAccountRequest,
   GetAccountResponse,
   ListAccountsRequest,
   ListAccountsResponse,
-} from './types/accounts-types';
-import { method } from './types/request-types';
+} from "./types/accounts-types";
+import { method } from "./types/request-types";
 
 // [GET] Get Account
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_getaccount

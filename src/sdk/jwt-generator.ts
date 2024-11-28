@@ -1,6 +1,6 @@
-import { BASE_URL, ALGORITHM, JWT_ISSUER } from './constants';
-import * as jwt from 'jsonwebtoken';
-import * as crypto from 'crypto';
+import { BASE_URL, ALGORITHM, JWT_ISSUER } from "./constants";
+import * as jwt from "jsonwebtoken";
+import * as crypto from "crypto";
 
 export function generateToken(
   requestMethod: string,
@@ -20,7 +20,7 @@ export function generateToken(
   const header = {
     alg: ALGORITHM,
     kid: apiKey,
-    nonce: crypto.randomBytes(16).toString('hex'),
+    nonce: crypto.randomBytes(16).toString("hex"),
   };
   const options: jwt.SignOptions = {
     algorithm: ALGORITHM as jwt.Algorithm,

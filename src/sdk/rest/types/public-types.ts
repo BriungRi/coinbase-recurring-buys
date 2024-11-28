@@ -7,7 +7,7 @@ import {
   Product,
   Products,
   ProductType,
-} from './common-types';
+} from "./common-types";
 
 // Get Server Time
 export type GetServerTimeResponse = {

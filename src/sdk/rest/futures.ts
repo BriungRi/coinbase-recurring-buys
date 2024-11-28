@@ -1,5 +1,5 @@
-import { API_PREFIX } from '../constants';
-import { RESTBase } from './rest-base';
+import { API_PREFIX } from "../constants";
+import { RESTBase } from "./rest-base";
 import {
   CancelPendingFuturesSweep,
   GetCurrentMarginWindowRequest,
@@ -14,8 +14,8 @@ import {
   ScheduleFuturesSweepResponse,
   SetIntradayMarginSettingRequest,
   SetIntradayMarginSettingResponse,
-} from './types/futures-types';
-import { method } from './types/request-types';
+} from "./types/futures-types";
+import { method } from "./types/request-types";
 
 // [GET] Get Futures Balance Summary
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_getfcmbalancesummary

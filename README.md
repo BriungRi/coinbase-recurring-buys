@@ -13,6 +13,7 @@ This script allows you to automatically purchase or sell cryptocurrencies on Coi
 1. **Clone the Repository**
 
    Clone this repository to your local machine:
+
    ```bash
    git clone https://github.com/BriungRi/coinbase-recurring-buys.git
    cd coinbase-recurring-buys
@@ -21,6 +22,7 @@ This script allows you to automatically purchase or sell cryptocurrencies on Coi
 2. **Install Dependencies**
 
    Install the required npm packages:
+
    ```bash
    pnpm install
    ```
@@ -28,6 +30,7 @@ This script allows you to automatically purchase or sell cryptocurrencies on Coi
 3. **Configure API Credentials**
 
    Copy the `.env.example` file to `.env` and fill in your Coinbase API credentials:
+
    ```bash
    API_KEY=
    API_SECRET=
@@ -38,16 +41,19 @@ This script allows you to automatically purchase or sell cryptocurrencies on Coi
    Run the script manually to ensure it works:
 
    For a market order (e.g., buy $1 of BTC-USD):
+
    ```bash
    pnpm start market --amount 1 --product BTC-USD --side BUY
    ```
 
    For a limit order (e.g., buy $1 of BTC-USD 1% below the best bid):
+
    ```bash
    pnpm start limit --amount 1 --product BTC-USD --side BUY --percent 1
    ```
 
    To test in the sandbox environment, add the `--dry` flag:
+
    ```bash
    pnpm start market --amount 1 --product BTC-USD --side BUY --dry
    ```
@@ -57,6 +63,7 @@ This script allows you to automatically purchase or sell cryptocurrencies on Coi
 1. **Open the Crontab Editor**
 
    Open the crontab editor:
+
    ```bash
    crontab -e
    ```
@@ -64,6 +71,7 @@ This script allows you to automatically purchase or sell cryptocurrencies on Coi
 2. **Schedule the Script**
 
    Add the following line to schedule the script to run every day at 2 AM:
+
    ```bash
    0 2 * * * cd /path/to/your/repo && pnpm start market --amount 1 --product BTC-USD --side BUY
    ```
@@ -79,6 +87,7 @@ This script allows you to automatically purchase or sell cryptocurrencies on Coi
 4. **Check Previous Runs**
 
    To check the status of previous runs, view the cron logs:
+
    ```bash
    grep CRON /var/log/syslog
    ```

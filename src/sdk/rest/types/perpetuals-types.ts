@@ -4,7 +4,7 @@ import {
   PortfolioSummary,
   Position,
   PositionSummary,
-} from './common-types';
+} from "./common-types";
 
 // Allocate Portfolio
 export type AllocatePortfolioRequest = {

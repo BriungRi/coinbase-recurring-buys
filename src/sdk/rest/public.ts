@@ -1,5 +1,5 @@
-import { API_PREFIX } from '../constants';
-import { RESTBase } from './rest-base';
+import { API_PREFIX } from "../constants";
+import { RESTBase } from "./rest-base";
 import {
   GetPublicMarketTradesRequest,
   GetPublicMarketTradesResponse,
@@ -12,8 +12,8 @@ import {
   GetServerTimeResponse,
   ListPublicProductsRequest,
   ListPublicProductsResponse,
-} from './types/public-types';
-import { method } from './types/request-types';
+} from "./types/public-types";
+import { method } from "./types/request-types";
 
 // [GET] Get Server Time
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_getservertime

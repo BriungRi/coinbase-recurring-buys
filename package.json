@@ -6,7 +6,8 @@
   "scripts": {
     "build": "tsc",
     "start": "ts-node src/index.ts",
-    "test": "jest"
+    "test": "jest",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@types/jest": "^29.5.14",
@@ -31,5 +32,8 @@
   },
   "keywords": [],
   "author": "Brian Li",
-  "license": "MIT"
+  "license": "MIT",
+  "lint-staged": {
+    "*.js": "eslint --cache --fix"
+  }
 }

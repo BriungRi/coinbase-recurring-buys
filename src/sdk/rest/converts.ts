@@ -1,5 +1,5 @@
-import { API_PREFIX } from '../constants';
-import { RESTBase } from './rest-base';
+import { API_PREFIX } from "../constants";
+import { RESTBase } from "./rest-base";
 import {
   CommitConvertTradeRequest,
   CommitConvertTradeResponse,
@@ -7,8 +7,8 @@ import {
   CreateConvertQuoteResponse,
   GetConvertTradeRequest,
   GetConvertTradeResponse,
-} from './types/converts-types';
-import { method } from './types/request-types';
+} from "./types/converts-types";
+import { method } from "./types/request-types";
 
 // [POST] Create Convert Quote
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_createconvertquote

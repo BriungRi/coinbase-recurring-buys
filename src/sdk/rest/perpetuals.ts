@@ -1,5 +1,5 @@
-import { API_PREFIX } from '../constants';
-import { RESTBase } from './rest-base';
+import { API_PREFIX } from "../constants";
+import { RESTBase } from "./rest-base";
 import {
   AllocatePortfolioRequest,
   AllocatePortfolioResponse,
@@ -13,8 +13,8 @@ import {
   ListPerpetualsPositionsResponse,
   OptInOutMultiAssetCollateralRequest,
   OptInOutMultiAssetCollateralResponse,
-} from './types/perpetuals-types';
-import { method } from './types/request-types';
+} from "./types/perpetuals-types";
+import { method } from "./types/request-types";
 
 // [POST] Allocate Portfolio
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_allocateportfolio

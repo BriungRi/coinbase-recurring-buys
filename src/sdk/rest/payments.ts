@@ -1,11 +1,11 @@
-import { API_PREFIX } from '../constants';
-import { RESTBase } from './rest-base';
+import { API_PREFIX } from "../constants";
+import { RESTBase } from "./rest-base";
 import {
   GetPaymentMethodRequest,
   GetPaymentMethodResponse,
   ListPaymentMethodsResponse,
-} from './types/payments-types';
-import { method } from './types/request-types';
+} from "./types/payments-types";
+import { method } from "./types/request-types";
 
 // [GET] List Payment Methods
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_getpaymentmethods

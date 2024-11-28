@@ -1,5 +1,5 @@
-import { API_PREFIX } from '../constants';
-import { RESTBase } from './rest-base';
+import { API_PREFIX } from "../constants";
+import { RESTBase } from "./rest-base";
 import {
   CreatePortfolioRequest,
   CreatePortfolioResponse,
@@ -13,8 +13,8 @@ import {
   ListPortfoliosResponse,
   MovePortfolioFundsRequest,
   MovePortfolioFundsResponse,
-} from './types/portfolios-types';
-import { method } from './types/request-types';
+} from "./types/portfolios-types";
+import { method } from "./types/request-types";
 
 // [GET] List Portfolios
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_getportfolios
