@@ -9,7 +9,6 @@
     "test": "jest",
     "prepare": "husky install",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
     "ts": "tsc --noEmit --incremental"
   },
   "devDependencies": {
@@ -44,9 +43,9 @@
   "author": "Brian Li",
   "license": "MIT",
   "lint-staged": {
-    "*.{js,ts}": [
-      "eslint --cache --fix",
-      "prettier --write"
+    "*": [
+      "eslint --cache --fix .",
+      "prettier . --write"
     ]
   }
 }
