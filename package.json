@@ -44,7 +44,7 @@
   "author": "Brian Li",
   "license": "MIT",
   "lint-staged": {
-    "*.js": [
+    "*.{js,ts}": [
       "eslint --cache --fix",
       "prettier --write"
     ]
