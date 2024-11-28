@@ -5,25 +5,21 @@ export const getEnv = () => {
     process.env.SAFETY_ORDER_FREQUENCY_SECONDS;
 
   if (!apiKey) {
-    console.error("Error: API_KEY must be set in .env file");
-    process.exit(1);
+    throw new Error("Error: API_KEY must be set in .env file");
   }
 
   if (!apiSecret) {
-    console.error("Error: API_SECRET must be set in .env file");
-    process.exit(1);
+    throw new Error("Error: API_SECRET must be set in .env file");
   }
 
   if (!safetyOrderFrequencySeconds) {
-    console.error(
+    throw new Error(
       "Error: SAFETY_ORDER_FREQUENCY_SECONDS must be set in .env file",
     );
-    process.exit(1);
   } else if (isNaN(parseInt(safetyOrderFrequencySeconds))) {
-    console.error(
+    throw new Error(
       "Error: SAFETY_ORDER_FREQUENCY_SECONDS must be a number in .env file",
     );
-    process.exit(1);
   }
 
   return {

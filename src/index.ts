@@ -2,7 +2,6 @@ import * as dotenv from "dotenv";
 dotenv.config();
 
 import { Command } from "commander";
-import { logger } from "./logger";
 import { handleMarketCommand } from "./subcommand/market";
 import { handleLimitCommand } from "./subcommand/limit";
 
@@ -45,4 +44,4 @@ const main = async () => {
   await program.parseAsync(process.argv);
 };
 
-main().catch(logger.error);
+main();
