@@ -3,3 +3,4 @@ cdp_api_key.json
 node_modules
 *.log
 dist
+tsconfig.tsbuildinfo

@@ -7,9 +7,13 @@
     "build": "tsc",
     "start": "ts-node src/index.ts",
     "test": "jest",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "ts": "tsc --noEmit --incremental"
   },
   "devDependencies": {
+    "@eslint/js": "^9.15.0",
     "@types/jest": "^29.5.14",
     "@types/jsonwebtoken": "^9.0.7",
     "@types/node-fetch": "^2.6.11",
@@ -18,17 +22,20 @@
     "bignumber.js": "^9.1.2",
     "commander": "^12.1.0",
     "dotenv": "^16.4.5",
-    "eslint": "^8.35.0",
+    "eslint": "^8.57.1",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "globals": "^15.12.0",
     "jest": "^29.7.0",
     "jsonwebtoken": "^9.0.2",
     "node-fetch": "^2.6.1",
     "pino": "^9.5.0",
     "prettier": "^2.8.8",
+    "pretty-quick": "4.0.0",
     "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2",
-    "typescript": "^5.5.4"
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^8.16.0"
   },
   "keywords": [],
   "author": "Brian Li",

@@ -27,6 +27,9 @@ jobs:
       - name: Check code formatting
         run: npx prettier --check .
 
+      - name: Check code linting
+        run: npx eslint .
+
       - run: npm test
         env:
           CI: true
