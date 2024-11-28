@@ -1,2 +1,2 @@
-npx pretty-quick --staged
 pnpm ts
+npx lint-staged
