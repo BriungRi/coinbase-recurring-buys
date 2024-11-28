@@ -1,4 +1,4 @@
-import { roundToNearestIncrement } from "../math";
+import { roundToNearestIncrement } from "../utils/math";
 
 describe("roundToNearestIncrement", () => {
   it("should round to the nearest increment", () => {

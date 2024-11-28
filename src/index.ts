@@ -1,96 +1,48 @@
 import * as dotenv from "dotenv";
-import { parseArgs } from "./args";
-import { getEnv } from "./env";
-import { RESTClient } from "./sdk/rest";
-import { OrderSide } from "./sdk/rest/types/common-types";
-import { CreateOrderRequest } from "./sdk/rest/types/orders-types";
-import { roundToNearestIncrement } from "./math";
-import pino from "pino";
 dotenv.config();
 
-const logger = pino({});
+import { Command } from "commander";
+import { logger } from "./logger";
+import { handleMarketCommand } from "./subcommand/market";
+import { handleLimitCommand } from "./subcommand/limit";
+
+const program = new Command();
+
+program.option("--dry", "Use the sandbox environment");
+
+program
+  .command("market")
+  .description("Place a market order")
+  .requiredOption("--amount <USD_AMOUNT>", "Amount in USD to buy/sell")
+  .requiredOption(
+    "--product <PRODUCT_ID>",
+    "Product ID to trade (e.g., BTC-USD)"
+  )
+  .requiredOption("--side <SIDE>", "Order side (BUY or SELL)")
+  .action(handleMarketCommand);
+
+program
+  .command("limit")
+  .description("Place a limit order")
+  .requiredOption("--amount <USD_AMOUNT>", "Amount in USD to buy/sell")
+  .requiredOption(
+    "--product <PRODUCT_ID>",
+    "Product ID to trade (e.g., BTC-USD)"
+  )
+  .requiredOption("--side <SIDE>", "Order side (BUY or SELL)", (value) => {
+    if (value !== "BUY" && value !== "SELL") {
+      throw new Error("Side must be BUY or SELL");
+    }
+    return value;
+  })
+  .requiredOption(
+    "--percent <PERCENT>",
+    "Percentage difference from the best bid or ask price"
+  )
+  .action(handleLimitCommand);
 
 const main = async () => {
-  const { subCommand, amount, productId, side, dry, percent } = parseArgs();
-  const { apiKey, apiSecret, safetyOrderFrequencySeconds } = getEnv();
-  const client = new RESTClient(apiKey, apiSecret, dry);
-
-  try {
-    const idempotencyKey = Math.floor(
-      Date.now() / 1000 / safetyOrderFrequencySeconds
-    ).toString();
-
-    if (subCommand === "market") {
-      logger.info(
-        `Constructing a market ${side} order for $${amount} ${productId}`
-      );
-      const createOrderRequest: CreateOrderRequest = {
-        clientOrderId: idempotencyKey,
-        productId: productId,
-        side: side as OrderSide,
-        orderConfiguration: {
-          market_market_ioc: {
-            quote_size: amount,
-          },
-        },
-      };
-      const response = await client.createOrder(createOrderRequest);
-      logger.info("Order placed successfully", response);
-    } else if (subCommand === "limit") {
-      if (!percent) {
-        throw new Error("Percent must be specified for limit orders");
-      }
-
-      // Fetch the best bid and ask prices
-      const { base_increment, quote_increment } = await client.getProduct({
-        productId,
-      });
-      const { pricebooks } = await client.getBestBidAsk({
-        productIds: [productId],
-      });
-      const pricebook = pricebooks[0];
-      const bestBid = pricebook.bids[0];
-      const bestAsk = pricebook.asks[0];
-      const limitPrice = roundToNearestIncrement(
-        side === "BUY"
-          ? (bestBid.price * (100 - parseFloat(percent))) / 100
-          : (bestAsk.price * (100 + parseFloat(percent))) / 100,
-        parseFloat(quote_increment)
-      );
-      const baseSize = roundToNearestIncrement(
-        amount / limitPrice,
-        parseFloat(base_increment)
-      );
-      if (side === "BUY") {
-        logger.info({ bestBid, limitPrice, baseSize });
-      } else {
-        logger.info({ bestAsk, limitPrice, baseSize });
-      }
-      logger.info(`Placing a ${side} limit order for $${amount} ${productId}.`);
-      const createOrderRequest: CreateOrderRequest = {
-        clientOrderId: idempotencyKey,
-        productId: productId,
-        side: side as OrderSide,
-        orderConfiguration: {
-          limit_limit_gtc: {
-            baseSize: baseSize.toString(),
-            limitPrice: limitPrice.toString(),
-            postOnly: false,
-          },
-        },
-      };
-      const response = await client.createOrder(createOrderRequest);
-      logger.info("Order placed successfully", response);
-    } else {
-      throw new Error("Invalid subcommand");
-    }
-  } catch (error) {
-    logger.error(
-      "Error placing order",
-      error instanceof Error ? error.message : error
-    );
-    process.exit(1);
-  }
+  await program.parseAsync(process.argv);
 };
 
-main().catch(console.error);
+main().catch(logger.error);

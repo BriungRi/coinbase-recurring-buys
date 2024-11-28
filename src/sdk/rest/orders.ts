@@ -1,5 +1,5 @@
-import { API_PREFIX } from '../constants';
-import { RESTBase } from './rest-base';
+import { API_PREFIX } from "../constants";
+import { RESTBase } from "./rest-base";
 import {
   CancelOrdersRequest,
   CancelOrdersResponse,
@@ -19,8 +19,8 @@ import {
   ListOrdersResponse,
   PreviewOrderRequest,
   PreviewOrderResponse,
-} from './types/orders-types';
-import { method } from './types/request-types';
+} from "./types/orders-types";
+import { method } from "./types/request-types";
 
 // [POST] Create Order
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_postorder
