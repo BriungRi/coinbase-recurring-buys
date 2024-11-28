@@ -30,7 +30,7 @@ export class RESTBase {
       queryParams,
       bodyParams,
       isPublic
-    );
+    ).then(JSON.parse);
   }
 
   prepareRequest(

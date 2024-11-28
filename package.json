@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "start": "node dist/index.js",
+    "start": "ts-node src/index.ts",
     "test": "jest"
   },
   "devDependencies": {
@@ -30,6 +30,6 @@
     "typescript": "^5.5.4"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "Brian Li",
+  "license": "MIT"
 }

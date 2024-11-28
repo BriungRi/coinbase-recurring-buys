@@ -27,7 +27,7 @@ export function getBestBidAsk(
     endpoint: `${API_PREFIX}/best_bid_ask`,
     queryParams: requestParams,
     isPublic: false,
-  }).then((data) => JSON.parse(data));
+  });
 }
 
 // [GET] Get Product Book
@@ -69,7 +69,7 @@ export function getProduct(
     endpoint: `${API_PREFIX}/products/${productId}`,
     queryParams: requestParams,
     isPublic: false,
-  }).then((data) => JSON.parse(data));
+  });
 }
 
 // [GET] Get Product Candles
