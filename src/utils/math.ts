@@ -2,7 +2,7 @@ import BigNumber from "bignumber.js";
 
 export const roundToNearestIncrement = (
   value: number,
-  increment: number
+  increment: number,
 ): number => {
   if (increment === 0) {
     throw new Error("Increment cannot be zero");

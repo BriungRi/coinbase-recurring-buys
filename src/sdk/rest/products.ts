@@ -20,7 +20,7 @@ import { method } from "./types/request-types";
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_getbestbidask
 export function getBestBidAsk(
   this: RESTBase,
-  requestParams: GetBestBidAskRequest
+  requestParams: GetBestBidAskRequest,
 ): Promise<GetBestBidAskResponse> {
   return this.request({
     method: method.GET,
@@ -34,7 +34,7 @@ export function getBestBidAsk(
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_getproductbook
 export function getProductBook(
   this: RESTBase,
-  requestParams: GetProductBookRequest
+  requestParams: GetProductBookRequest,
 ): Promise<GetProductBookResponse> {
   return this.request({
     method: method.GET,
@@ -48,7 +48,7 @@ export function getProductBook(
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_getproducts
 export function listProducts(
   this: RESTBase,
-  requestParams: ListProductsRequest
+  requestParams: ListProductsRequest,
 ): Promise<ListProductsResponse> {
   return this.request({
     method: method.GET,
@@ -62,7 +62,7 @@ export function listProducts(
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_getproduct
 export function getProduct(
   this: RESTBase,
-  { productId, ...requestParams }: GetProductRequest
+  { productId, ...requestParams }: GetProductRequest,
 ): Promise<GetProductResponse> {
   return this.request({
     method: method.GET,
@@ -76,7 +76,7 @@ export function getProduct(
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_getcandles
 export function getProductCandles(
   this: RESTBase,
-  { productId, ...requestParams }: GetProductCandlesRequest
+  { productId, ...requestParams }: GetProductCandlesRequest,
 ): Promise<GetProductCandlesResponse> {
   return this.request({
     method: method.GET,
@@ -90,7 +90,7 @@ export function getProductCandles(
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_getmarkettrades
 export function getMarketTrades(
   this: RESTBase,
-  { productId, ...requestParams }: GetMarketTradesRequest
+  { productId, ...requestParams }: GetMarketTradesRequest,
 ): Promise<GetMarketTradesResponse> {
   return this.request({
     method: method.GET,

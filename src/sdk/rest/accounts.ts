@@ -12,7 +12,7 @@ import { method } from "./types/request-types";
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_getaccount
 export function getAccount(
   this: RESTBase,
-  { accountUuid }: GetAccountRequest
+  { accountUuid }: GetAccountRequest,
 ): Promise<GetAccountResponse> {
   return this.request({
     method: method.GET,
@@ -25,7 +25,7 @@ export function getAccount(
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_getaccounts
 export function listAccounts(
   this: RESTBase,
-  requestParams: ListAccountsRequest
+  requestParams: ListAccountsRequest,
 ): Promise<ListAccountsResponse> {
   return this.request({
     method: method.GET,

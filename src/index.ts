@@ -16,7 +16,7 @@ program
   .requiredOption("--amount <USD_AMOUNT>", "Amount in USD to buy/sell")
   .requiredOption(
     "--product <PRODUCT_ID>",
-    "Product ID to trade (e.g., BTC-USD)"
+    "Product ID to trade (e.g., BTC-USD)",
   )
   .requiredOption("--side <SIDE>", "Order side (BUY or SELL)")
   .action(handleMarketCommand);
@@ -27,7 +27,7 @@ program
   .requiredOption("--amount <USD_AMOUNT>", "Amount in USD to buy/sell")
   .requiredOption(
     "--product <PRODUCT_ID>",
-    "Product ID to trade (e.g., BTC-USD)"
+    "Product ID to trade (e.g., BTC-USD)",
   )
   .requiredOption("--side <SIDE>", "Order side (BUY or SELL)", (value) => {
     if (value !== "BUY" && value !== "SELL") {
@@ -37,7 +37,7 @@ program
   })
   .requiredOption(
     "--percent <PERCENT>",
-    "Percentage difference from the best bid or ask price"
+    "Percentage difference from the best bid or ask price",
   )
   .action(handleLimitCommand);
 

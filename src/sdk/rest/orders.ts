@@ -26,7 +26,7 @@ import { method } from "./types/request-types";
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_postorder
 export function createOrder(
   this: RESTBase,
-  requestParams: CreateOrderRequest
+  requestParams: CreateOrderRequest,
 ): Promise<CreateOrderResponse> {
   return this.request({
     method: method.POST,
@@ -40,7 +40,7 @@ export function createOrder(
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_cancelorders
 export function cancelOrders(
   this: RESTBase,
-  requestParams: CancelOrdersRequest
+  requestParams: CancelOrdersRequest,
 ): Promise<CancelOrdersResponse> {
   return this.request({
     method: method.POST,
@@ -54,7 +54,7 @@ export function cancelOrders(
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_editorder
 export function editOrder(
   this: RESTBase,
-  requestParams: EditOrderRequest
+  requestParams: EditOrderRequest,
 ): Promise<EditOrderResponse> {
   return this.request({
     method: method.POST,
@@ -68,7 +68,7 @@ export function editOrder(
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_previeweditorder
 export function editOrderPreview(
   this: RESTBase,
-  requestParams: EditOrderPreviewRequest
+  requestParams: EditOrderPreviewRequest,
 ): Promise<EditOrderPreviewResponse> {
   return this.request({
     method: method.POST,
@@ -82,7 +82,7 @@ export function editOrderPreview(
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_gethistoricalorders
 export function listOrders(
   this: RESTBase,
-  requestParams: ListOrdersRequest
+  requestParams: ListOrdersRequest,
 ): Promise<ListOrdersResponse> {
   return this.request({
     method: method.GET,
@@ -96,7 +96,7 @@ export function listOrders(
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_getfills
 export function listFills(
   this: RESTBase,
-  requestParams: ListFillsRequest
+  requestParams: ListFillsRequest,
 ): Promise<ListFillsResponse> {
   return this.request({
     method: method.GET,
@@ -110,7 +110,7 @@ export function listFills(
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_gethistoricalorder
 export function getOrder(
   this: RESTBase,
-  { orderId }: GetOrderRequest
+  { orderId }: GetOrderRequest,
 ): Promise<GetOrderResponse> {
   return this.request({
     method: method.GET,
@@ -123,7 +123,7 @@ export function getOrder(
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_previeworder
 export function previewOrder(
   this: RESTBase,
-  requestParams: PreviewOrderRequest
+  requestParams: PreviewOrderRequest,
 ): Promise<PreviewOrderResponse> {
   return this.request({
     method: method.POST,
@@ -137,7 +137,7 @@ export function previewOrder(
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_closeposition
 export function closePosition(
   this: RESTBase,
-  requestParams: ClosePositionRequest
+  requestParams: ClosePositionRequest,
 ): Promise<ClosePositionResponse> {
   return this.request({
     method: method.POST,

@@ -14,7 +14,7 @@ import { method } from "./types/request-types";
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_createconvertquote
 export function createConvertQuote(
   this: RESTBase,
-  requestParams: CreateConvertQuoteRequest
+  requestParams: CreateConvertQuoteRequest,
 ): Promise<CreateConvertQuoteResponse> {
   return this.request({
     method: method.POST,
@@ -28,7 +28,7 @@ export function createConvertQuote(
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_getconverttrade
 export function getConvertTrade(
   this: RESTBase,
-  { tradeId, ...requestParams }: GetConvertTradeRequest
+  { tradeId, ...requestParams }: GetConvertTradeRequest,
 ): Promise<GetConvertTradeResponse> {
   return this.request({
     method: method.GET,
@@ -42,7 +42,7 @@ export function getConvertTrade(
 // https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_commitconverttrade
 export function commitConvertTrade(
   this: RESTBase,
-  { tradeId, ...requestParams }: CommitConvertTradeRequest
+  { tradeId, ...requestParams }: CommitConvertTradeRequest,
 ): Promise<CommitConvertTradeResponse> {
   return this.request({
     method: method.POST,

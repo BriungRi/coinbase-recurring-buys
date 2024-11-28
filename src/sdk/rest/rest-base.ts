@@ -29,7 +29,7 @@ export class RESTBase {
       endpoint,
       queryParams,
       bodyParams,
-      isPublic
+      isPublic,
     ).then(JSON.parse);
   }
 
@@ -38,7 +38,7 @@ export class RESTBase {
     urlPath: string,
     queryParams?: Record<string, any>,
     bodyParams?: Record<string, any>,
-    isPublic?: boolean
+    isPublic?: boolean,
   ) {
     const headers: Headers = this.setHeaders(httpMethod, urlPath, isPublic);
 
@@ -59,7 +59,7 @@ export class RESTBase {
   async sendRequest(
     headers: Headers,
     requestOptions: RequestInit,
-    url: string
+    url: string,
   ) {
     const response: Response = await fetch(url, requestOptions);
     const responseText = await response.text();
@@ -82,12 +82,12 @@ export class RESTBase {
           httpMethod,
           urlPath,
           this.apiKey,
-          this.apiSecret
-        )}`
+          this.apiSecret,
+        )}`,
       );
     else if (isPublic == undefined || isPublic == false)
       throw new Error(
-        "Attempting to access authenticated endpoint with invalid API_KEY or API_SECRET."
+        "Attempting to access authenticated endpoint with invalid API_KEY or API_SECRET.",
       );
 
     return headers;
@@ -114,7 +114,7 @@ export class RESTBase {
       .flatMap(([key, value]) => {
         if (Array.isArray(value)) {
           return value.map(
-            (item) => `${encodeURIComponent(key)}=${encodeURIComponent(item)}`
+            (item) => `${encodeURIComponent(key)}=${encodeURIComponent(item)}`,
           );
         } else {
           return `${encodeURIComponent(key)}=${encodeURIComponent(value)}`;

@@ -29,7 +29,7 @@ export function getServerTime(this: RESTBase): Promise<GetServerTimeResponse> {
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_getpublicproductbook
 export function getPublicProductBook(
   this: RESTBase,
-  requestParams: GetPublicProductBookRequest
+  requestParams: GetPublicProductBookRequest,
 ): Promise<GetPublicProductBookResponse> {
   return this.request({
     method: method.GET,
@@ -43,7 +43,7 @@ export function getPublicProductBook(
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_getpublicproducts
 export function listPublicProducts(
   this: RESTBase,
-  requestParams: ListPublicProductsRequest
+  requestParams: ListPublicProductsRequest,
 ): Promise<ListPublicProductsResponse> {
   return this.request({
     method: method.GET,
@@ -57,7 +57,7 @@ export function listPublicProducts(
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_getpublicproduct
 export function getPublicProduct(
   this: RESTBase,
-  { productId }: GetPublicProductRequest
+  { productId }: GetPublicProductRequest,
 ): Promise<GetPublicProductResponse> {
   return this.request({
     method: method.GET,
@@ -70,7 +70,7 @@ export function getPublicProduct(
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_getpubliccandles
 export function getPublicProductCandles(
   this: RESTBase,
-  { productId, ...requestParams }: GetPublicProductCandlesRequest
+  { productId, ...requestParams }: GetPublicProductCandlesRequest,
 ): Promise<GetPublicProductCandlesResponse> {
   return this.request({
     method: method.GET,
@@ -84,7 +84,7 @@ export function getPublicProductCandles(
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_getpublicmarkettrades
 export function getPublicMarketTrades(
   this: RESTBase,
-  { productId, ...requestParams }: GetPublicMarketTradesRequest
+  { productId, ...requestParams }: GetPublicMarketTradesRequest,
 ): Promise<GetPublicMarketTradesResponse> {
   return this.request({
     method: method.GET,

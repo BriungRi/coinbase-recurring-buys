@@ -20,7 +20,7 @@ import { method } from "./types/request-types";
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_allocateportfolio
 export function allocatePortfolio(
   this: RESTBase,
-  requestParams: AllocatePortfolioRequest
+  requestParams: AllocatePortfolioRequest,
 ): Promise<AllocatePortfolioResponse> {
   return this.request({
     method: method.POST,
@@ -34,7 +34,7 @@ export function allocatePortfolio(
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_getintxportfoliosummary
 export function getPerpetualsPortfolioSummary(
   this: RESTBase,
-  { portfolioUuid }: GetPerpetualsPortfolioSummaryRequest
+  { portfolioUuid }: GetPerpetualsPortfolioSummaryRequest,
 ): Promise<GetPerpetualsPortfolioSummaryResponse> {
   return this.request({
     method: method.GET,
@@ -47,7 +47,7 @@ export function getPerpetualsPortfolioSummary(
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_getintxpositions
 export function listPerpetualsPositions(
   this: RESTBase,
-  { portfolioUuid }: ListPerpetualsPositionsRequest
+  { portfolioUuid }: ListPerpetualsPositionsRequest,
 ): Promise<ListPerpetualsPositionsResponse> {
   return this.request({
     method: method.GET,
@@ -60,7 +60,7 @@ export function listPerpetualsPositions(
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_getintxposition
 export function getPerpertualsPosition(
   this: RESTBase,
-  { portfolioUuid, symbol }: GetPerpetualsPositionRequest
+  { portfolioUuid, symbol }: GetPerpetualsPositionRequest,
 ): Promise<GetPerpetualsPositionResponse> {
   return this.request({
     method: method.GET,
@@ -73,7 +73,7 @@ export function getPerpertualsPosition(
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_getintxbalances
 export function getPortfolioBalances(
   this: RESTBase,
-  { portfolioUuid }: GetPortfolioBalancesRequest
+  { portfolioUuid }: GetPortfolioBalancesRequest,
 ): Promise<GetPortfolioBalancesResponse> {
   return this.request({
     method: method.GET,
@@ -86,7 +86,7 @@ export function getPortfolioBalances(
 // Official Documentation: https://docs.cdp.coinbase.com/advanced-trade/reference/retailbrokerageapi_intxmultiassetcollateral
 export function optInOutMultiAssetCollateral(
   this: RESTBase,
-  requestParams: OptInOutMultiAssetCollateralRequest
+  requestParams: OptInOutMultiAssetCollateralRequest,
 ): Promise<OptInOutMultiAssetCollateralResponse> {
   return this.request({
     method: method.POST,
