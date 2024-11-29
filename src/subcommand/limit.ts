@@ -45,19 +45,20 @@ export const handleLimitCommand = async ({
     amount / limitPrice,
     parseFloat(base_increment),
   );
-  if (side === "BUY") {
-    const { price: bestBidPrice, size: bestBidSize } = bestBid;
-    logger.info(
-      { bestBidPrice, bestBidSize, limitPrice, baseSize },
-      "Derived limitPrice and baseSize",
-    );
-  } else {
-    const { price: bestAskPrice, size: bestAskSize } = bestAsk;
-    logger.info(
-      { bestAskPrice, bestAskSize, limitPrice, baseSize },
-      "Derived limitPrice and baseSize",
-    );
-  }
+  const { price: bestBidPrice, size: bestBidSize } = bestBid;
+  const { price: bestAskPrice, size: bestAskSize } = bestAsk;
+  logger.info(
+    {
+      bestBidPrice,
+      bestBidSize,
+      bestAskPrice,
+      bestAskSize,
+      limitPrice,
+      baseSize,
+    },
+    "Derived limitPrice and baseSize",
+  );
+
   const createOrderRequest: CreateOrderRequest = {
     clientOrderId: idempotencyKey,
     productId: product,
