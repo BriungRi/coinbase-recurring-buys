@@ -12,19 +12,18 @@ export const handleLimitCommand = async ({
   side,
   percent,
   dry,
+  safetyIdempotencyDuration,
 }: {
   amount: number;
   product: string;
   side: string;
   percent: number;
   dry: boolean;
+  safetyIdempotencyDuration: number;
 }) => {
-  const { apiKey, apiSecret, safetyOrderFrequencySeconds } = getEnv();
+  const { apiKey, apiSecret } = getEnv();
   const client = new RESTClient(apiKey, apiSecret, dry);
-  const idempotencyKey = getIdempotencyKey(
-    product,
-    safetyOrderFrequencySeconds,
-  );
+  const idempotencyKey = getIdempotencyKey(product, safetyIdempotencyDuration);
 
   // Fetch the best bid and ask prices
   const { base_increment, quote_increment } = await client.getProduct({

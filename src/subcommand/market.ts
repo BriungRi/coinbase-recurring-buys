@@ -10,18 +10,17 @@ export const handleMarketCommand = async ({
   product,
   side,
   dry,
+  safetyIdempotencyDuration,
 }: {
   amount: number;
   product: string;
   side: string;
   dry: boolean;
+  safetyIdempotencyDuration: number;
 }) => {
-  const { apiKey, apiSecret, safetyOrderFrequencySeconds } = getEnv();
+  const { apiKey, apiSecret } = getEnv();
   const client = new RESTClient(apiKey, apiSecret, dry);
-  const idempotencyKey = getIdempotencyKey(
-    product,
-    safetyOrderFrequencySeconds,
-  );
+  const idempotencyKey = getIdempotencyKey(product, safetyIdempotencyDuration);
   const createOrderRequest: CreateOrderRequest = {
     clientOrderId: idempotencyKey,
     productId: product,

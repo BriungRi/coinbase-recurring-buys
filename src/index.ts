@@ -18,6 +18,12 @@ program
     "Product ID to trade (e.g., BTC-USD)",
   )
   .requiredOption("--side <SIDE>", "Order side (BUY or SELL)")
+  .option(
+    "--safety-idempotency-duration <SECONDS>",
+    "Safety idempotency duration in seconds.",
+    (value) => parseInt(value),
+    300,
+  )
   .action(handleMarketCommand);
 
 program
@@ -37,6 +43,12 @@ program
   .requiredOption(
     "--percent <PERCENT>",
     "Percentage difference from the best bid or ask price",
+  )
+  .option(
+    "--safety-idempotency-duration <SECONDS>",
+    "Safety idempotency duration in seconds.",
+    (value) => parseInt(value),
+    300,
   )
   .action(handleLimitCommand);
 
