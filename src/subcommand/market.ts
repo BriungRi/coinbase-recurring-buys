@@ -18,7 +18,6 @@ export const handleMarketCommand = async ({
 }) => {
   const { apiKey, apiSecret, safetyOrderFrequencySeconds } = getEnv();
   const client = new RESTClient(apiKey, apiSecret, dry);
-  logger.info(`Constructing a market ${side} order for $${amount} ${product}`);
   const idempotencyKey = getIdempotencyKey(
     product,
     safetyOrderFrequencySeconds,
@@ -33,6 +32,10 @@ export const handleMarketCommand = async ({
       },
     },
   };
+  logger.info(
+    createOrderRequest,
+    `Placing a ${side} market order for $${amount} ${product}`,
+  );
   const response = await client.createOrder(createOrderRequest);
   logger.info(response, "Order placed successfully");
 };

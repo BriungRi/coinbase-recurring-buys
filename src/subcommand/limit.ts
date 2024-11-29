@@ -47,11 +47,18 @@ export const handleLimitCommand = async ({
     parseFloat(base_increment),
   );
   if (side === "BUY") {
-    logger.info({ bestBid, limitPrice, baseSize });
+    const { price: bestBidPrice, size: bestBidSize } = bestBid;
+    logger.info(
+      { bestBidPrice, bestBidSize, limitPrice, baseSize },
+      "Derived limitPrice and baseSize",
+    );
   } else {
-    logger.info({ bestAsk, limitPrice, baseSize });
+    const { price: bestAskPrice, size: bestAskSize } = bestAsk;
+    logger.info(
+      { bestAskPrice, bestAskSize, limitPrice, baseSize },
+      "Derived limitPrice and baseSize",
+    );
   }
-  logger.info(`Placing a ${side} limit order for $${amount} ${product}.`);
   const createOrderRequest: CreateOrderRequest = {
     clientOrderId: idempotencyKey,
     productId: product,
@@ -64,6 +71,10 @@ export const handleLimitCommand = async ({
       },
     },
   };
+  logger.info(
+    createOrderRequest,
+    `Placing a ${side} limit order for $${amount} ${product}.`,
+  );
   const response = await client.createOrder(createOrderRequest);
   logger.info(response, "Order placed successfully");
 };
