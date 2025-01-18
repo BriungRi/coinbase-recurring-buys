@@ -17,7 +17,7 @@ export const handleLimitCommand = async ({
   amount: number;
   product: string;
   side: string;
-  percent: number;
+  percent: string;
   dry: boolean;
   safetyIdempotencyDuration: number;
 }) => {
@@ -35,18 +35,20 @@ export const handleLimitCommand = async ({
   const pricebook = pricebooks[0];
   const bestBid = pricebook.bids[0];
   const bestAsk = pricebook.asks[0];
+  const bestBidPrice = parseFloat(bestBid.price);
+  const bestAskPrice = parseFloat(bestAsk.price);
+  const bestBidSize = parseFloat(bestBid.size);
+  const bestAskSize = parseFloat(bestAsk.size);
   const limitPrice = roundToNearestIncrement(
     side === "BUY"
-      ? (bestBid.price * (100 - percent)) / 100
-      : (bestAsk.price * (100 + percent)) / 100,
+      ? (bestBidPrice * (100 - parseFloat(percent))) / 100
+      : (bestAskPrice * (100 + parseFloat(percent))) / 100,
     parseFloat(quote_increment),
   );
   const baseSize = roundToNearestIncrement(
     amount / limitPrice,
     parseFloat(base_increment),
   );
-  const { price: bestBidPrice, size: bestBidSize } = bestBid;
-  const { price: bestAskPrice, size: bestAskSize } = bestAsk;
   logger.info(
     {
       bestBidPrice,
@@ -55,6 +57,8 @@ export const handleLimitCommand = async ({
       bestAskSize,
       limitPrice,
       baseSize,
+      base_increment,
+      quote_increment,
     },
     "Derived limitPrice and baseSize",
   );
@@ -73,7 +77,7 @@ export const handleLimitCommand = async ({
   };
   logger.info(
     createOrderRequest,
-    `Placing a ${side} limit order for $${amount} ${product}.`,
+    `Placing a ${side} limit order for ${amount} ${product}.`,
   );
   const response = await client.createOrder(createOrderRequest);
   logger.info(response, "Order placed successfully");
